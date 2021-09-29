@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .font{
+      font-family: 'test';
+    }
+  </style>
+</head>
+<body>
+  <input id="input"/>
+  <div class="font">
+    测试字体输入输入
+  </div>
+</body>
+<script>
+  async function loadFonts(fonts) {
+  const font = new FontFace('test', 'url(http://localhost:3000/api/?str='+fonts+')');
+  // wait for font to be loaded
+  await font.load();
+  // add font to document
+  document.fonts.add(font);
+}
+const input = document.getElementById('input');
+
+input.addEventListener('change', updateValue);
+
+function updateValue(e) {
+  console.log(e.target.value)
+  loadFonts(e.target.value)
+}
+</script>
+</html>

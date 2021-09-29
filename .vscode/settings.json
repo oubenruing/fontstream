@@ -1,0 +1,6 @@
+{
+  "deno.enable": true,
+  "debug.javascript.unmapMissingSources": true,
+  "deno.lint": true,
+  "deno.unstable": true
+}
